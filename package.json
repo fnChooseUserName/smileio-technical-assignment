@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "dist/src/server.js",
   "scripts": {
-    "build": "tsc --project tsconfig.build.json",
+    "build": "tsc",
     "start": "npm run build && node dist/src/server.js",
     "dev": "nodemon src/server.ts"
   },
