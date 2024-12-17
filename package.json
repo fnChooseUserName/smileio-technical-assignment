@@ -1,11 +1,11 @@
 {
   "name": "test1",
   "version": "1.0.0",
-  "main": "dist/src/server.js",
+  "main": "dist/server.js",
   "scripts": {
     "build": "npm run clean && tsc --project tsconfig.json",
-    "start": "npm run build && node dist/src/server.js",
-    "dev": "nodemon src/server.ts",
+    "start": "npm run build && node dist/server.js",
+    "dev": "nodemon server.ts",
     "clean": "rimraf dist/"
   },
   "author": "",
