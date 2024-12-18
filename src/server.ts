@@ -1,19 +1,13 @@
-// src/server.js
+// server.js
 import express, { type Express, Request, Response } from "express"
 import helmet from "helmet"
 import cors from "cors"
-import path from "path"
-import crypto from "crypto"
-const jwt = require('jsonwebtoken')
 
 import { env } from "./config/env"
 
-
-
-
 const app:Express = express()
 const port = process.env.PORT || 8080
-const corsOptions = { origin: env.CORS_ORIGIN, credentials: true }
+const corsOptions = { origin: env.CORS_ORIGIN, credentials: false }
 
 app.set("trust proxy", true)
 
