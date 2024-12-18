@@ -6,11 +6,11 @@ phases:
       nodejs: latest
     commands:
       - npm install -g typescript
-      - npm install
-  
+  pre-build:
+    commands: npm install
   build: 
     commands:
-      - tsc
+      - npm run build
 
 artifacts:
   files:
@@ -20,4 +20,3 @@ artifacts:
     - 'dist/**/*'
     - '.platform/**/*'      # AWS EB config files
     - '.ebextensions/**/*' # AWS EB config files
-  discard-paths: no
