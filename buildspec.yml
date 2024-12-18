@@ -16,6 +16,7 @@ artifacts:
   files:
     - package.json
     - package-lock.json
+    - tsconfig.json
     - 'dist/**/*'
     - '.platform/**/*'      # AWS EB config files
     - '.ebextensions/**/*' # AWS EB config files
