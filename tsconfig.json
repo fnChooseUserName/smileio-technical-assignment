@@ -3,8 +3,10 @@
     "target": "es6",
     "module": "commonjs",
     "baseUrl": "./",
-    "outDir": "dist",
+    "rootDir": ".",
+    "outDir": "dist/",
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "strict": true,
     "types": [
       "node"

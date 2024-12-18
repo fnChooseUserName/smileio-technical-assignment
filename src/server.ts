@@ -2,12 +2,15 @@
 import express, { type Express, Request, Response } from "express"
 import helmet from "helmet"
 import cors from "cors"
+import path from "path"
 
 import { env } from "./config/env"
 
 const app:Express = express()
 const port = process.env.PORT || 8080
 const corsOptions = { origin: env.CORS_ORIGIN, credentials: false }
+
+const staticPath = 'dist'
 
 app.set("trust proxy", true)
 
@@ -24,8 +27,23 @@ app.use(helmet({
     }
 }))
 
+app.use(express.static(path.join(process.cwd(), staticPath)))
+
 app.get('/', (req: Request, res: Response) => {
-      res.send('Hello Express && Typescript')
+      //res.send('Hello Express && Typescript')
+      res.sendFile(path.join(__dirname + `/pages/index.html`))
+})
+
+app.get('/:page', (req: Request, res: Response, next) => {
+
+    let fileName = `${path.join(process.cwd(), staticPath)}/src/pages/${req.params.page}/index.html`
+    res.sendFile(fileName, {dotfiles: 'ignore'}, (err) => {
+        if(err) {
+            next(err)
+        } else {
+            console.log(`Served ${fileName}`);
+        }
+    })
 })
 
 app.listen(port, () => {

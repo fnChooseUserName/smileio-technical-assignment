@@ -1,10 +1,10 @@
 {
   "name": "test1",
   "version": "1.0.0",
-  "main": "dist/server.js",
+  "main": "dist/src/server.js",
   "scripts": {
-    "build": "npm run clean && tsc --project tsconfig.json",
-    "start": "node dist/server.js",
+    "build": "npm run clean && vite build && npx tsc",
+    "start": "node dist/src/server.js",
     "dev": "nodemon server.ts",
     "clean": "rimraf dist/"
   },
@@ -18,15 +18,17 @@
     "express": "^4.21.2",
     "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
-    "nodemon": "^3.1.7",
+    "nodemon": "^3.1.9",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.2",
+    "@types/serve-static": "^1.15.7",
     "concurrently": "^9.1.0"
   }
 }
